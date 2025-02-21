@@ -1,1 +1,1 @@
-# BlogNest-A-Mega-Blog-Application
+# BlogNest-A Mega Blog Application
