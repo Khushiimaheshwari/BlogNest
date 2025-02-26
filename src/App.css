@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+    --font-body: "Josefin Sans", "sans-serif";
+    --font-code: "Roboto", "monospace";
+
+    --breakpoint-sm: 330px;
+    --breakpoint-smd: 500px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+    
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
