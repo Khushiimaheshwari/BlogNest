@@ -139,7 +139,7 @@ export class Service{
     }
 
     async getFilePreview(fileId) {
-        return this.bucket.getFilePreview(
+        return this.bucket.getFileView(
             config.BucketId,
             fileId
         )
