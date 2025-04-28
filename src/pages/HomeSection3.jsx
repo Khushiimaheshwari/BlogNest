@@ -49,7 +49,7 @@ export default function HomeSection3() {
       };
     
     return (
-        <section className='w-full flex flex-col mb-14 gap-20'>
+        <section className='w-full flex flex-col mb-14 gap-30 mb-10'>
 
             {notification.message && <Notification message={notification.message} type={notification.type} onClose={notification.onClose} />}
 
