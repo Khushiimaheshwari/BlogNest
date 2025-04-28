@@ -5,11 +5,17 @@ import { IoMdCreate } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../componenets/Button';
 import authService from '../appwrite/Auth';
+import Notification from '../componenets/Notification';
 
 function HomeSection4() {
 
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+
+    const handleCloseNotification = () => {
+        setNotification({ message: "", type: "", onClose: handleCloseNotification });
+    };
+    const [notification, setNotification] = useState({message: "", type: "", onClose: handleCloseNotification});
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -20,12 +26,20 @@ function HomeSection4() {
                 console.error("Error fetching data:", error);
             }
         };
-
+ 
         fetchUser();
     }, []);
 
+    const showNotification = () => {
+        setNotification({message: "Login to create posts", type: "warning", onClose: handleCloseNotification})
+        console.log("Show Notification");
+    }
+
     return (
         <section className='w-full mb-8'>
+
+            {notification.message && <Notification message={notification.message} type={notification.type} onClose={notification.onClose} />}
+            
             <div className='flex flex-col items-center text-center gap-10 mb-14 md:px-10 sm:px-5'>
                 <h3 className='xl:text-4xl lg:text-3xl sm:text-3xl font-extrabold'>Share Your Thoughts, Inspire the World!</h3>
                 <p className='text-lg max-w-4xl'> 
@@ -73,7 +87,7 @@ function HomeSection4() {
                 </Button>
             ) : (
                 <Button className="flex items-center gap-2 md:text-lg sm:text-base mt-3 bg-blue-800 text-white px-6 py-3 rounded-3xl hover:translate-y-[-5px] hover:shadow-2xl hover:shadow-sky-300 transition-all duration-200"
-                    onClick={() => alert("Login to explore posts")}>
+                    onClick={showNotification}>
                     Create Post
                     <IoMdCreate className='mt-1'/>
                 </Button>
