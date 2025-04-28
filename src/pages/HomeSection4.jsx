@@ -36,7 +36,7 @@ function HomeSection4() {
     }
 
     return (
-        <section className='w-full mt-10 mb-8'>
+        <section className='w-full mt-25 mb-8'>
 
             {notification.message && <Notification message={notification.message} type={notification.type} onClose={notification.onClose} />}
             
